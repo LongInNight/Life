@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-06-22 14:46:51",
+  "model_config": {
+    "input_size": 4,
+    "hidden_size": 64,
+    "num_layers": 2,
+    "num_classes": 2,
+    "dropout": 0.2
+  },
+  "training_config": {
+    "epochs": 100,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "sequence_length": 10
+  },
+  "data_info": {
+    "train_samples": 7735,
+    "test_samples": 1911,
+    "train_file": "train_health_monitoring_dataset.xlsx",
+    "test_file": "test_health_monitoring_dataset.xlsx",
+    "features": [
+      "heart_rate",
+      "spo2",
+      "respiratory_rate",
+      "temperature"
+    ]
+  },
+  "results": {
+    "test_accuracy": 0.31920460491889063,
+    "confusion_matrix": [
+      [
+        9,
+        1235
+      ],
+      [
+        66,
+        601
+      ]
+    ]
+  }
+}
