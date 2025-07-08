@@ -3,13 +3,13 @@
 在train_models1目录下
 python new_train_models.py 则开始训练模型，训练出的模型best_health_model3.pth
 生命判断模型的结构
-├── 输入层 (sequence_length=10, features=4)
-├── 双向LSTM层 (hidden_size=64, num_layers=2)
-├── 多头注意力层 (num_heads=8)
-└── 分类器
-    ├── Linear(128 → 64) + ReLU + Dropout(0.2)
-    ├── Linear(64 → 32) + ReLU + Dropout(0.2)
-    └── Linear(32 → 2) [正常/异常]
+输入层 (sequence_length=10, features=4)
+双向LSTM层 (hidden_size=64, num_layers=2)
+多头注意力层 (num_heads=8)
+分类器
+Linear(128 → 64) + ReLU + Dropout(0.2)
+Linear(64 → 32) + ReLU + Dropout(0.2)
+Linear(32 → 2) [正常/异常]
 代表的意思是输入十个评判指标，对当前生命状态进行判断
 这是模型的损失和正确率：
 ![image](https://github.com/user-attachments/assets/5aac3609-ca4c-40b0-851d-9bacf69ba0f7)
@@ -24,13 +24,13 @@ python new_pth_to_onnx.py 则会将生成的模型转化为health_model_advanced
 在train_models2目录下
 python train_modes2.py,则会开始训练预测模型，best_health_model2.pth
 生命预测模型的结构：
-├── 输入层 (batch_size, 100, 4)
-├── 双层LSTM (hidden_size=128, dropout=0.2)
-├── 多头注意力层 (num_heads=8)
-├── 特征提取层
-│   ├── Linear(128 → 64) + ReLU + Dropout(0.2)
-│   └── Linear(64 → 40) [10步×4特征]
-└── 输出重塑 (batch_size, 10, 4)
+输入层 (batch_size, 100, 4)
+双层LSTM (hidden_size=128, dropout=0.2)
+多头注意力层 (num_heads=8)
+特征提取层
+Linear(128 → 64) + ReLU + Dropout(0.2)
+Linear(64 → 40) [10步×4特征]
+(batch_size, 10, 4)
 代表的意思是输入一百个评判指标，后面十个时间步进行预测
 这是训练模型的评估指标：
 生理参数	    MSE	    MAE	   RMSE	MAPE
